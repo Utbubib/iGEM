@@ -9,7 +9,6 @@
 #include <Adafruit_MAX31865.h>
 
 // MAX31865 (RTD Temp Sensor)  setup
-// ----- MAX31865 (RTD Temp Sensor) -----
 #define MAX_CS   10   // Chip Select pin
 #define MAX_DI   11   // MOSI
 #define MAX_DO   12   // MISO
@@ -27,14 +26,11 @@ Adafruit_MAX31865 max = Adafruit_MAX31865(MAX_CS);
 
 //  Function: readPH()
 //  Purpose:  Reads pH value from EZO-pH circuit over I2C
-// ----- EZO-pH Sensor -----
 #define EZO_PH_ADDRESS 0x63  // Default I2C address for Atlas Scientific EZO-pH
 
 
-// -----------------------------
 //  Function: readPH()
 //  Purpose:  Reads pH value from EZO-pH circuit over I2C
-// -----------------------------
 String readPH() {
   Wire.beginTransmission(EZO_PH_ADDRESS);
   Wire.write("R");          // send read command
@@ -52,12 +48,9 @@ String readPH() {
 }
 
 
+
 //  Function: readTemperature()
 //  Purpose:  Reads temperature (°C) from MAX31865 with PT100 RTD
-// -----------------------------
-//  Function: readTemperature()
-//  Purpose:  Reads temperature (°C) from MAX31865 with PT100 RTD
-// -----------------------------
 float readTemperature() {
   uint16_t rtd = max.readRTD();
   float ratio = rtd;
@@ -69,9 +62,6 @@ float readTemperature() {
 
 
 //  Arduino Setup
-// -----------------------------
-//  Arduino Setup
-// -----------------------------
 void setup() {
   Serial.begin(9600);
   Wire.begin();
@@ -82,9 +72,6 @@ void setup() {
 
 
 //  Arduino Loop
-// -----------------------------
-//  Arduino Loop
-// -----------------------------
 void loop() {
   float temperature = readTemperature();
   String ph_value = readPH();
