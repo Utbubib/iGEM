@@ -1,3 +1,10 @@
+// to go to project folder: cd "/mnt/c/Users/edong/OneDrive/Documents/Arduino/iGEM"
+// git status
+// git add .
+// git commit -m "describe changes"
+// git push origin main
+
+
 #include <Wire.h>
 #include <Adafruit_MAX31865.h>
 
